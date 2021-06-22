@@ -1,3 +1,9 @@
+## For client side documentation `client/README.md`
+
+---
+
+---
+
 # Warehouse API
 
 ## Requirements
