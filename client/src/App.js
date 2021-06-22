@@ -1,20 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import logo from './logo.svg'
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+
+import NavBar from './components/NavBar'
+import Home from './components/Home'
+import Products from './components/Products'
+import Articles from './components/Articles'
+import Stocks from './components/Stocks'
+
 import './App.css'
 
 function App() {
-  const [data, setData] = useState(null)
-  useEffect(() => {
-    fetch('/')
-      .then((res) => res.json())
-      .then((data) => setData(data))
-  })
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div>{!data ? 'Loading...' : data}</div>
+        <NavBar />
       </header>
+      <Home />
+      <div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/articles" component={Articles} />
+          <Route exact path="/stock" component={Stocks} />
+        </Switch>
+      </div>
     </div>
   )
 }
